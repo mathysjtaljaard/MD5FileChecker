@@ -24,10 +24,10 @@ public class VerifyFileMD5 {
 				
 				if (StringUtils.contains(file.getName(), "md5.txt")) {
 					md5StringValue = getMD5String(file, true);
-					System.out.println(md5StringValue);
+					System.out.println(file.getName() + " -> " + md5StringValue);
 				} else {
 					md5GeneratedStringValue = getMD5String(file, false);
-					System.out.println(md5GeneratedStringValue);
+					System.out.println(file.getName() + " -> " + md5GeneratedStringValue);
 				}
 				
 				if (md5StringValue != null && md5GeneratedStringValue != null ) {
@@ -39,7 +39,9 @@ public class VerifyFileMD5 {
 					md5StringValue = null;
 					md5GeneratedStringValue = null;
 				}
-			}
+			} 
+		} else {
+			System.out.println("Missing either an MD5 File or the main file to check against please verify in your directory. Number of files in your directory = " + files.size());
 		}
 		
 		return allVerified;
