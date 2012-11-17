@@ -22,7 +22,7 @@ public class VerifyFileMD5 {
 		if (files.size() % 2 == 0) {
 			for (File file : files ) {
 				
-				if (StringUtils.contains(file.getName(), "md5.txt")) {
+				if (StringUtils.contains(file.getName(), "md5")) {
 					md5StringValue = getMD5String(file, true);
 					System.out.println(file.getName() + " -> " + md5StringValue);
 				} else {
@@ -34,7 +34,7 @@ public class VerifyFileMD5 {
 					if (StringUtils.equalsIgnoreCase(md5StringValue, md5GeneratedStringValue)) {
 						allVerified = true;
 					} else {
-						System.out.println("The following zip file doesn't match: " + file.getName());
+						System.out.println("The following zip file doesn't match: " + file.getName() +"\nZip MD5 = " + md5GeneratedStringValue + "\nMD5 Reference File = " + md5StringValue);
 					}
 					md5StringValue = null;
 					md5GeneratedStringValue = null;
